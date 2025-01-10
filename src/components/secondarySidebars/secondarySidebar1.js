@@ -23,10 +23,10 @@ const SecondarySidebar1 = () => {
 
     return (
         <List
-            sx={{ height: "100vh", width: '100%', maxWidth: 256, bgcolor: '#fff', padding: "0", borderRight : "1px solid #FFFFFF", boxShadow:"0px 2px 1px 1px #00000033"}}
+            sx={{ height: "100vh", width: '100%', maxWidth: 256, bgcolor: '#fff', marginRight: "1px", padding: "0", boxShadow:"0px 2px 1px 1px #00000033"}}
             aria-label="contacts"
         >
-            <ListItem sx={{ paddingTop: "12px", paddingBottom: "12px", gap: "5px" }}>
+            <ListItem sx={{ paddingTop: "20px", paddingBottom: "20px", gap: "5px" }}>
                 <AppIcon />
                 <ListItemText
                     primary="LogoIpsum"

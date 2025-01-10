@@ -14,7 +14,7 @@ const Sidebar = () => {
             sx={{ height: "100vh", width: '100%', maxWidth: 64, bgcolor: '#283356', padding: "0" }}
             aria-label="contacts"
         >
-            <ListItem sx={{ padding: "12px", paddingBottom: "10px 0" }} >
+            <ListItem sx={{ margin: "12px", padding: "0" }} >
                 <IconButton>
                     <AppIcon />
                 </IconButton>
