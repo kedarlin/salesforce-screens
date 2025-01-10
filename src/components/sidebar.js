@@ -3,8 +3,7 @@ import React from 'react'
 import StarIcon from '@mui/icons-material/Star';
 import AppIcon from '../assets/appIcon';
 
-const Sidebar = () => {
-    const [selectedIndex, setSelectedIndex] = React.useState(1);
+const Sidebar = ({ selectedIndex, setSelectedIndex }) => {
 
     const handleListItemClick = (event, index) => {
         setSelectedIndex(index);

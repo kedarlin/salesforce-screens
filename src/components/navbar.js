@@ -5,44 +5,34 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import './style.css';
 import { Menu } from '@mui/icons-material';
+import { ListItemButton, ListItemText } from '@mui/material';
 
 export default function Navbar() {
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="sticky" className="custom-appbar">
-                <Toolbar className="toolbar">
+            <AppBar position="sticky" sx={{ backgroundColor: "white", boxShadow: "none" }}>
+                <Toolbar sx={{ display: "flex", justifyContent: "space-between", padding: "12px 16px" }}>
                     <Box sx={{ flexGrow: 1 }} />
-                    <Box className="search-bar-container">
-                        <IconButton
-                            size="small"
-                            edge="start"
-                            color="#49454F"
-                            aria-label="menu"
-                            sx={{ mr: 2 }}
-                        >
-                            <Menu />
+                    <Box className="search-bar-container" sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#F0F0F0', borderRadius: '20px', padding: '4px 12px', width: '50%', maxWidth: '600px' }}>
+                        <IconButton size="small" edge="start" sx={{ mr: 2 }}>
+                            <Menu sx={{ color: "#49454F" }} />
                         </IconButton>
                         <InputBase
-                            sx={{color: "#49454F", width: "100%"}}
+                            sx={{ color: "#49454F", width: "100%" }}
                             placeholder="Global search"
                             inputProps={{ 'aria-label': 'global search' }}
                         />
-                        <IconButton
-                            size="small"
-                            edge="start"
-                            color="#49454F"
-                            aria-label="menu"
-                        >
-                            <SearchIcon sx={{color: "#49454F"}} />
+                        <IconButton size="small" edge="start">
+                            <SearchIcon sx={{ color: "#49454F" }} />
                         </IconButton>
                     </Box>
-                    <Box sx={{ flexGrow: 1, justifyContent: "center" }}>
-                        <IconButton size="large" edge="end" color="inherit">
-                            <AccountCircle />
-                        </IconButton>
+                    <Box sx={{ flexGrow: 1 }} />
+                    <Box sx={{ ml: 'auto' }}>
+                        <Box size="large" edge="end" sx={{ padding: "10px 12px", backgroundColor: "#bdbdbd", borderRadius: "50%", cursor: "pointer" }}>
+                            <ListItemText sx={{ color: "#fff" }} primary="HD" />
+                        </Box>
                     </Box>
                 </Toolbar>
             </AppBar>
