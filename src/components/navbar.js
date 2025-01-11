@@ -5,13 +5,12 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import './style.css';
 import { Menu } from '@mui/icons-material';
-import { ListItemButton, ListItemText } from '@mui/material';
+import { ListItemText } from '@mui/material';
 
 export default function Navbar() {
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box>
             <AppBar position="sticky" sx={{ backgroundColor: "white", boxShadow: "none" }}>
                 <Toolbar sx={{ display: "flex", justifyContent: "space-between", padding: "12px 16px" }}>
                     <Box sx={{ flexGrow: 1 }} />
