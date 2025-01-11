@@ -37,10 +37,13 @@ const Dashboard1 = () => {
                         color: '#fff',
                         padding: "5px",
                         margin: "0",
+                        ":hover":{
+                            backgroundColor: "#0275f0"
+                        }
                     }}
                     onClick={() => setOpen((prev) => !prev)}
                 >
-                    {open ? <ArrowBackIos  sx={{fontSize: "14px"}}/> : <ArrowForwardIos sx={{fontSize: "14px"}}/>}
+                    {open ? <ArrowBackIos  sx={{fontSize: "14px", transform: "translateX(3px)"}}/> : <ArrowForwardIos sx={{fontSize: "14px"}}/>}
                 </IconButton>
             </Box>
 
