@@ -4,6 +4,7 @@ import SecondarySidebar from '../components/secondarySidebar';
 import { Box, IconButton, List } from '@mui/material';
 import Navbar from '../components/navbar';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
+import DataTable from '../components/table';
 
 const Dashboard1 = () => {
     const [selectedIndex, setSelectedIndex] = useState(1);
@@ -61,8 +62,11 @@ const Dashboard1 = () => {
                     sx={{
                         flexGrow: 1,
                         backgroundColor: "#f4f5fa",
+                        padding: "20px"
                     }}
-                />
+                >
+                    <DataTable />
+                </Box>
             </List>
         </Box>
     );
