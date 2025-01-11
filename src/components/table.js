@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -12,15 +11,15 @@ import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
 import { LocationOnSharp } from '@mui/icons-material';
 
-function createData(id, name, calories, fat, carbs, protein) {
-    return { id, name, calories, fat, carbs, protein };
+function createData(id, user, email, location, accountStatus, accountId) {
+    return { id, user, email, location, accountStatus, accountId };
 }
 
 const rows = [
     createData(1, 'Cupcake', 'mail@mail.com', "Chennai", "Active", 40),
     createData(2, 'Donut', 'mail@mail.com', "Chennai", "Active", 40),
     createData(3, 'Eclair', 'mail@mail.com', "Chennai", "Active", 60),
-    createData(4, 'Frozen yoghurt', 'mail@mail.com', "Chennai", "Active", 40),
+    createData(4, 'Frozen yoghurt', 'mail@mail.com', "Chennai", "Suspended", 40),
     createData(5, 'Gingerbread', 'mail@mail.com', "Chennai", "Active", 30),
     createData(6, 'Gingerbread', 'mail@mail.com', "Chennai", "Active", 30),
     createData(7, 'Gingerbread', 'mail@mail.com', "Chennai", "Active", 30),
@@ -96,7 +95,7 @@ export default function DataTable() {
                                         onChange={handleSelectAllClick}
                                     />
                                 </TableCell>
-                                <TableCell>User</TableCell>
+                                <TableCell>user</TableCell>
                                 <TableCell>Email</TableCell>
                                 <TableCell>Location</TableCell>
                                 <TableCell>Account Status</TableCell>
@@ -130,21 +129,21 @@ export default function DataTable() {
                                                 />
                                             </TableCell>
                                             <TableCell component="th" id={labelId} scope="row">
-                                                {row.name}
+                                                {row.user}
                                             </TableCell>
-                                            <TableCell>{row.calories}</TableCell>
+                                            <TableCell>{row.email}</TableCell>
                                             <TableCell>
                                                 <Box display="flex" alignContent="center">
                                                     <LocationOnSharp sx={{ fontSize: "18px", color:"#707070" }} />
-                                                    {row.fat}
+                                                    {row.location}
                                                 </Box>
                                             </TableCell>
                                             <TableCell>
-                                                <Box sx={{backgroundColor: "#ebebeb", color: "#000", borderRadius:"15px", padding: "5px 10px", width: "min-content"}}>
-                                                    {row.carbs}
+                                                <Box sx={{backgroundColor: row.accountStatus === 'Active' ? "#ebebeb" : "#ef6c00", color: row.accountStatus === 'Active' ? "#000" : "#fff", borderRadius:"15px", padding: "5px 10px", width: "min-content", fontSize:"12px"}}>
+                                                    {row.accountStatus}
                                                 </Box>
                                             </TableCell>
-                                            <TableCell>{row.protein}</TableCell>
+                                            <TableCell>{row.accountId}</TableCell>
                                         </TableRow>
                                     );
                                 })}

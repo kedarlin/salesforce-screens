@@ -32,7 +32,7 @@ const Dashboard1 = () => {
                     sx={{
                         position: "absolute",
                         bottom: 16,
-                        right: -14,
+                        right: -12,
                         zIndex: 1,
                         backgroundColor: '#007bff',
                         color: '#fff',
@@ -44,7 +44,7 @@ const Dashboard1 = () => {
                     }}
                     onClick={() => setOpen((prev) => !prev)}
                 >
-                    {open ? <ArrowBackIos  sx={{fontSize: "14px", transform: "translateX(3px)"}}/> : <ArrowForwardIos sx={{fontSize: "14px"}}/>}
+                    {open ? <ArrowBackIos  sx={{fontSize: "14px", transform: "translateX(2px)"}}/> : <ArrowForwardIos sx={{fontSize: "14px"}}/>}
                 </IconButton>
             </Box>
 

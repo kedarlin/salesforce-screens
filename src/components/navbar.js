@@ -29,7 +29,7 @@ export default function Navbar() {
                     </Box>
                     <Box sx={{ flexGrow: 1 }} />
                     <Box sx={{ ml: 'auto' }}>
-                        <Box size="large" edge="end" sx={{ padding: "10px 12px", backgroundColor: "#bdbdbd", borderRadius: "50%", cursor: "pointer" }}>
+                        <Box size="small" edge="end" sx={{ padding: "4px 8px", backgroundColor: "#bdbdbd", borderRadius: "50%", cursor: "pointer" }}>
                             <ListItemText sx={{ color: "#fff" }} primary="HD" />
                         </Box>
                     </Box>
