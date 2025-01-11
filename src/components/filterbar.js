@@ -1,22 +1,29 @@
-import { ArrowDropDown, FilterAlt, Search, Settings, Star } from '@mui/icons-material';
+import { ArrowDropDown, ArrowForwardIos, FilterAlt, Search, Settings, Star, ViewKanbanOutlined } from '@mui/icons-material';
 import { Box, FormControl, IconButton, InputAdornment, ListItem, MenuItem, Menu, Button, TextField, Select } from '@mui/material';
 import React from 'react';
 
 const Filterbar = () => {
     const [filter, setFilter] = React.useState('default');
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
+    const [anchorEl1, setAnchorEl1] = React.useState(null);
+    const [anchorEl2, setAnchorEl2] = React.useState(null);
+    const open1 = Boolean(anchorEl1);
+    const open2 = Boolean(anchorEl2);
 
     const handleChange = (event) => {
         setFilter(event.target.value);
     };
 
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
+    const handleClick1 = (event) => {
+        setAnchorEl1(event.currentTarget);
     };
-
-    const handleClose = () => {
-        setAnchorEl(null);
+    const handleClick2 = (event) => {
+        setAnchorEl2(event.currentTarget);
+    };
+    const handleClose1 = () => {
+        setAnchorEl1(null);
+    };
+    const handleClose2 = () => {
+        setAnchorEl2(null);
     };
 
     return (
@@ -71,16 +78,47 @@ const Filterbar = () => {
             </Box>
             <Box display="flex" justifyContent="end" flex={1} gap="10px">
                 <Button
+                    startIcon={<ViewKanbanOutlined />}
                     variant="contained"
-                    onClick={handleClick}
+                    onClick={handleClick1}
+                    endIcon={<ArrowForwardIos />}
+                    disableElevation
+                    sx={{
+                        color: "black",
+                        backgroundColor: "#ffffff00",
+                        border: "2px solid black"
+                    }}
+                />
+                <Menu
+                    anchorEl={anchorEl1}
+                    open={open1}
+                    onClose={handleClose1}
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'left',
+                    }}
+                >
+                    <MenuItem onClick={handleClose1}>Edit</MenuItem>
+                    <MenuItem onClick={handleClose1}>Duplicate</MenuItem>
+                    <MenuItem onClick={handleClose1}>Archive</MenuItem>
+                    <MenuItem onClick={handleClose1}>More</MenuItem>
+                </Menu>
+
+                <Button
+                    variant="contained"
+                    onClick={handleClick2}
                     endIcon={<ArrowDropDown />}
+                    sx={{
+                        width: "150px",
+                    }}
+                    
                 >
                     Options
                 </Button>
                 <Menu
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
+                    anchorEl={anchorEl2}
+                    open={open2}
+                    onClose={handleClose2}
                     anchorOrigin={{
                         vertical: 'bottom',
                         horizontal: 'left',
@@ -89,12 +127,16 @@ const Filterbar = () => {
                         vertical: 'top',
                         horizontal: 'left',
                     }}
+                    sx={{
+                        width: "150px",
+                    }}
                 >
-                    <MenuItem onClick={handleClose}>Edit</MenuItem>
-                    <MenuItem onClick={handleClose}>Duplicate</MenuItem>
-                    <MenuItem onClick={handleClose}>Archive</MenuItem>
-                    <MenuItem onClick={handleClose}>More</MenuItem>
+                    <MenuItem onClick={handleClose2}>Edit</MenuItem>
+                    <MenuItem onClick={handleClose2}>Duplicate</MenuItem>
+                    <MenuItem onClick={handleClose2}>Archive</MenuItem>
+                    <MenuItem onClick={handleClose2}>More</MenuItem>
                 </Menu>
+
                 <IconButton>
                     <Settings />
                 </IconButton>
