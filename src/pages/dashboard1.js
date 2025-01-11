@@ -5,6 +5,7 @@ import { Box, IconButton, List } from '@mui/material';
 import Navbar from '../components/navbar';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 import DataTable from '../components/table';
+import Filterbar from '../components/filterbar';
 
 const Dashboard1 = () => {
     const [selectedIndex, setSelectedIndex] = useState(1);
@@ -13,6 +14,8 @@ const Dashboard1 = () => {
     useEffect(() =>{
         setOpen(true);
     }, [selectedIndex]);
+
+    
     return (
         <Box display="flex" height="100vh">
             <Sidebar selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} />
@@ -65,6 +68,7 @@ const Dashboard1 = () => {
                         padding: "20px"
                     }}
                 >
+                    <Filterbar />
                     <DataTable />
                 </Box>
             </List>

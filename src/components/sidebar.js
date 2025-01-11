@@ -10,7 +10,7 @@ const Sidebar = ({ selectedIndex, setSelectedIndex }) => {
     };
     return (
         <List
-            sx={{ height: "100vh", width: '100%', maxWidth: 64, bgcolor: '#283356', padding: "0" }}
+            sx={{ height: "100vh", width: '100%', maxWidth: 64, bgcolor: '#283356', padding: "0", overflow: "scroll", scrollbarWidth: "none" }}
             aria-label="contacts"
         >
             <ListItem sx={{ margin: "12px", padding: "0" }} >
@@ -60,6 +60,80 @@ const Sidebar = ({ selectedIndex, setSelectedIndex }) => {
                     <StarIcon sx={{ color: selectedIndex === 5 ? "blue" : "white" }} />
                 </IconButton>
             </ListItem>
+
+            <ListItem sx={{ margin: "12px", padding: "0" }}>
+                <IconButton selected={selectedIndex === 5}
+                    onClick={(event) => handleListItemClick(event, 5)}>
+                    <StarIcon sx={{ color: selectedIndex === 5 ? "blue" : "white" }} />
+                </IconButton>
+            </ListItem>
+
+
+            <ListItem sx={{ margin: "12px", padding: "0" }}>
+                <IconButton selected={selectedIndex === 5}
+                    onClick={(event) => handleListItemClick(event, 5)}>
+                    <StarIcon sx={{ color: selectedIndex === 5 ? "blue" : "white" }} />
+                </IconButton>
+            </ListItem>
+
+
+            <ListItem sx={{ margin: "12px", padding: "0" }}>
+                <IconButton selected={selectedIndex === 5}
+                    onClick={(event) => handleListItemClick(event, 5)}>
+                    <StarIcon sx={{ color: selectedIndex === 5 ? "blue" : "white" }} />
+                </IconButton>
+            </ListItem>
+
+            <ListItem sx={{ margin: "12px", padding: "0" }}>
+                <IconButton selected={selectedIndex === 5}
+                    onClick={(event) => handleListItemClick(event, 5)}>
+                    <StarIcon sx={{ color: selectedIndex === 5 ? "blue" : "white" }} />
+                </IconButton>
+            </ListItem>
+
+            <ListItem sx={{ margin: "12px", padding: "0" }}>
+                <IconButton selected={selectedIndex === 5}
+                    onClick={(event) => handleListItemClick(event, 5)}>
+                    <StarIcon sx={{ color: selectedIndex === 5 ? "blue" : "white" }} />
+                </IconButton>
+            </ListItem>
+
+            <ListItem sx={{ margin: "12px", padding: "0" }}>
+                <IconButton selected={selectedIndex === 5}
+                    onClick={(event) => handleListItemClick(event, 5)}>
+                    <StarIcon sx={{ color: selectedIndex === 5 ? "blue" : "white" }} />
+                </IconButton>
+            </ListItem>
+
+            <ListItem sx={{ margin: "12px", padding: "0" }}>
+                <IconButton selected={selectedIndex === 5}
+                    onClick={(event) => handleListItemClick(event, 5)}>
+                    <StarIcon sx={{ color: selectedIndex === 5 ? "blue" : "white" }} />
+                </IconButton>
+            </ListItem>
+
+            <ListItem sx={{ margin: "12px", padding: "0" }}>
+                <IconButton selected={selectedIndex === 5}
+                    onClick={(event) => handleListItemClick(event, 5)}>
+                    <StarIcon sx={{ color: selectedIndex === 5 ? "blue" : "white" }} />
+                </IconButton>
+            </ListItem>
+
+            <ListItem sx={{ margin: "12px", padding: "0" }}>
+                <IconButton selected={selectedIndex === 5}
+                    onClick={(event) => handleListItemClick(event, 5)}>
+                    <StarIcon sx={{ color: selectedIndex === 5 ? "blue" : "white" }} />
+                </IconButton>
+            </ListItem>
+
+            <ListItem sx={{ margin: "12px", padding: "0" }}>
+                <IconButton selected={selectedIndex === 5}
+                    onClick={(event) => handleListItemClick(event, 5)}>
+                    <StarIcon sx={{ color: selectedIndex === 5 ? "blue" : "white" }} />
+                </IconButton>
+            </ListItem>
+
+
         </List>
     )
 }
