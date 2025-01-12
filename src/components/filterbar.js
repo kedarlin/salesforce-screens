@@ -1,5 +1,5 @@
 import { ArrowDropDown, ArrowForwardIos, FilterAlt, Search, Settings, Star, ViewKanbanOutlined } from '@mui/icons-material';
-import { Box, FormControl, IconButton, InputAdornment, ListItem, MenuItem, Menu, Button, TextField, Select, Collapse } from '@mui/material';
+import { Box, FormControl, IconButton, InputAdornment, ListItem, MenuItem, Menu, Button, TextField, Select, Collapse, DialogTitle, DialogContent, DialogActions, Dialog, ListItemText, Radio, RadioGroup, FormControlLabel } from '@mui/material';
 import React, { useState } from 'react';
 import FilterSidebar from './filterSidebar';
 
@@ -10,6 +10,16 @@ const Filterbar = () => {
     const open1 = Boolean(anchorEl1);
     const open2 = Boolean(anchorEl2);
     const [openFilterSidebar, setOpenFilterSidebar] = useState(false);
+
+    const [openDialog, setOpenDialog] = useState(false);
+
+    const openDialogBox = () => {
+        setOpenDialog(true);
+    };
+
+    const closeDialogBox = () => {
+        setOpenDialog(false);
+    };
 
     const handleChange = (event) => {
         setFilter(event.target.value);
@@ -30,11 +40,11 @@ const Filterbar = () => {
 
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-          return;
+            return;
         }
-    
+
         setOpenFilterSidebar(open);
-      };
+    };
 
     return (
         <Box display="flex" flexDirection="row" alignItems="center" gap="16px" padding="16px">
@@ -69,7 +79,7 @@ const Filterbar = () => {
                     </Select>
                 </FormControl>
             </Box>
-            <Box display="flex" justifyContent="center" flex={1}>
+            <Box display="flex" justifyContent="end" flex={1} gap="10px">
                 <TextField
                     size="small"
                     variant="outlined"
@@ -85,8 +95,6 @@ const Filterbar = () => {
                         borderRadius: 4,
                     }}
                 />
-            </Box>
-            <Box display="flex" justifyContent="end" flex={1} gap="10px">
                 <Button
                     startIcon={<ViewKanbanOutlined />}
                     variant="contained"
@@ -96,7 +104,7 @@ const Filterbar = () => {
                     sx={{
                         color: "black",
                         backgroundColor: "#ffffff00",
-                        border: "2px solid black"
+                        border: "1px solid black"
                     }}
                 />
                 <Menu
@@ -105,7 +113,11 @@ const Filterbar = () => {
                     onClose={handleClose1}
                     anchorOrigin={{
                         vertical: 'bottom',
-                        horizontal: 'left',
+                        horizontal: 'right',
+                    }}
+                    transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
                     }}
                 >
                     <MenuItem onClick={handleClose1}>Edit</MenuItem>
@@ -118,10 +130,6 @@ const Filterbar = () => {
                     variant="contained"
                     onClick={handleClick2}
                     endIcon={<ArrowDropDown />}
-                    sx={{
-                        width: "150px",
-                    }}
-                    
                 >
                     Options
                 </Button>
@@ -132,25 +140,101 @@ const Filterbar = () => {
                     TransitionComponent={Collapse}
                     anchorOrigin={{
                         vertical: 'bottom',
-                        horizontal: 'left',
+                        horizontal: 'right',
                     }}
                     transformOrigin={{
                         vertical: 'top',
-                        horizontal: 'left',
+                        horizontal: 'right',
                     }}
                     sx={{
-                        width: "150px",
+                        width: "150px"
                     }}
                 >
-                    <MenuItem onClick={handleClose2}>Edit</MenuItem>
-                    <MenuItem onClick={handleClose2}>Duplicate</MenuItem>
-                    <MenuItem onClick={handleClose2}>Archive</MenuItem>
-                    <MenuItem onClick={handleClose2}>More</MenuItem>
+                    <MenuItem
+                        sx={{
+                            width: "150px"
+                        }}
+                        onClick={handleClose2}>Edit</MenuItem>
+                    <MenuItem
+                        sx={{
+                            width: "150px"
+                        }}
+                        onClick={handleClose2}>Duplicate</MenuItem>
+                    <MenuItem
+                        sx={{
+                            width: "150px"
+                        }}
+                        onClick={handleClose2}>Archive</MenuItem>
+                    <MenuItem
+                        sx={{
+                            width: "150px"
+                        }}
+                        onClick={handleClose2}>More</MenuItem>
                 </Menu>
-
-                <IconButton>
+                <IconButton onClick={() => openDialogBox()}>
                     <Settings />
                 </IconButton>
+                <Dialog
+                    open={openDialog}
+                    onClose={closeDialogBox}
+                    maxWidth="md"
+                    fullWidth
+                >
+                    <DialogTitle align="center" fontSize="24px">
+                        List View
+                    </DialogTitle>
+                    <DialogContent>
+                        {/* List Name */}
+                        <ListItemText sx={{ mt: 2, width: '100%' }}>List Name</ListItemText>
+                        <FormControl required sx={{ width: '100%' }}>
+                            <TextField
+                                autoFocus
+                                placeholder="Enter list name"
+                                fullWidth
+                            />
+                        </FormControl>
+
+                        {/* List API Name */}
+                        <ListItemText sx={{ mt: 2, width: '100%' }}>List API Name</ListItemText>
+                        <FormControl required sx={{ width: '100%' }}>
+                            <TextField
+                                placeholder="Enter API name"
+                                fullWidth
+                            />
+                        </FormControl>
+
+                        <ListItemText sx={{ mt: 2, width: '100%' }}>Who sees this list view?</ListItemText>
+                        <RadioGroup
+                            aria-labelledby="visibility-options"
+                            defaultValue="Only I can see this list view"
+                            name="visibility-options"
+                            sx={{ width: '100%' }}
+                        >
+                            <FormControlLabel
+                                value="Only I can see this list view"
+                                control={<Radio />}
+                                label="Only I can see this list view"
+                                sx={{ width: '100%' }}
+                            />
+                            <FormControlLabel
+                                value="All users can see this list"
+                                control={<Radio />}
+                                label="All users can see this list"
+                                sx={{ width: '100%' }}
+                            />
+                            <FormControlLabel
+                                value="Share list view with groups of users"
+                                control={<Radio />}
+                                label="Share list view with groups of users"
+                                sx={{ width: '100%' }}
+                            />
+                        </RadioGroup>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={closeDialogBox}>Cancel</Button>
+                        <Button type="submit" onClick={closeDialogBox}>Save</Button>
+                    </DialogActions>
+                </Dialog>
                 <IconButton onClick={toggleDrawer(true)}>
                     <FilterAlt />
                 </IconButton>

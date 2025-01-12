@@ -1,4 +1,4 @@
-import { Close, Inbox, Mail, UnfoldMore, Star, Search } from '@mui/icons-material';
+import { Close, UnfoldMore, Search } from '@mui/icons-material';
 import {
     Box,
     Collapse,
@@ -22,6 +22,7 @@ const FilterSidebar = ({ openFilterSidebar, toggleDrawer }) => {
 
     const [filtersCount, setFiltersCount] = React.useState(1);
     const [filters, setFilters] = React.useState(Array(filtersCount).fill("default"));
+    const [filterLogicValue, setFilterLogicVale] = React.useState('');
 
     const handleChange = (index) => (event) => {
         const newFilters = [...filters];
@@ -164,11 +165,11 @@ const FilterSidebar = ({ openFilterSidebar, toggleDrawer }) => {
                                 borderRadius: 4,
                             }}
                         />
-                        <Button variant='contained' size='large' disableElevation>
+                        <Button variant='contained' size='large' sx={{ lineHeight: "2.5rem"}} disableElevation>
                             Search
                         </Button>
                     </Box>
-                    
+
                     <Box display="flex" alignItems="center" justifyContent="start" gap={3} mt={4}>
                         <Box flex={0.5} />
                         <ListItemText
@@ -257,8 +258,6 @@ const FilterSidebar = ({ openFilterSidebar, toggleDrawer }) => {
                                 });
                             }}
                         >Remove row</Link>
-                    </Box>
-                    <Box display="flex" justifyContent="flex-start" flexDirection="row" gap={2}>
                         <Link
                             sx={{
                                 cursor: "pointer",
@@ -279,9 +278,57 @@ const FilterSidebar = ({ openFilterSidebar, toggleDrawer }) => {
                             }}
                         >Remove all rows</Link>
                     </Box>
+                    <ListItemText
+                        sx={{
+                            flex: 5
+                        }}
+                        primary="Filter Logic"
+                        slotProps={{
+                            primary: {
+                                sx: {
+                                    mt: 4,
+                                    fontWeight: "500"
+                                },
+                            },
+                        }}
+                    />
+                    <TextField
+                        fullWidth
+                        size="small"
+                        variant="outlined"
+                        placeholder="filter logic..."
+                        value={filterLogicValue}
+                        onChange={(event) => setFilterLogicVale(event.target.value)}
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <Search />
+                                </InputAdornment>
+                            ),
+                        }}
+                        style={{
+                            borderRadius: 4,
+                        }}
+                    />
+                    <Box py={2} px={1}>
+                        <Link
+                            sx={{
+                                cursor: "pointer",
+                                color: "blue",
+                                textDecoration: "none",
+                                fontWeight: "400",
+                                ":hover": {
+                                    textDecoration: "underline"
+                                }
+                            }}
+                            onClick={() => {
+                                setFilterLogicVale('')
+                            }}
+                        >Remove Filter logic</Link>
+                    </Box>
                 </List>
             </Box>
-        </Drawer>
+        </Drawer >
     );
 };
 
