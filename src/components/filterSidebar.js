@@ -126,7 +126,6 @@ const FilterSidebar = ({ openFilterSidebar, toggleDrawer }) => {
         <Drawer anchor="right" open={openFilterSidebar} onClose={toggleDrawer(false)}>
             <Box
                 role="presentation"
-                onKeyDown={toggleDrawer(false)}
                 padding={2}
                 mr={4}
             >
@@ -147,58 +146,30 @@ const FilterSidebar = ({ openFilterSidebar, toggleDrawer }) => {
                     />
                 </Box>
                 <List sx={{ mt: 1 }}>
-                    <TextField
-                        fullWidth
-                        size="medium"
-                        variant="outlined"
-                        placeholder="Search Account"
-                        label="Filter by owner"
-                        InputProps={{
-                            startAdornment: (
-                                <InputAdornment position="start">
-                                    <Search />
-                                </InputAdornment>
-                            ),
-                        }}
-                        style={{
-                            borderRadius: 4,
-                        }}
-                    />
-                    <Button variant='contained' sx={{ mt: 2 }} disableElevation>
-                        Search
-                    </Button>
-                    <Box display="flex" justifyContent="flex-start" flexDirection="row" gap={2}>
-                        <Link
-                            sx={{
-                                cursor: "pointer",
-                                color: "blue",
-                                textDecoration: "none",
-                                fontWeight: "400",
-                                p: 1,
-                                ":hover": {
-                                    textDecoration: "underline"
-                                }
+                    <Box display="flex" gap={2} flexDirection="row" alignItems="center">
+                        <TextField
+                            fullWidth
+                            size="medium"
+                            variant="outlined"
+                            placeholder="Search Account"
+                            label="Filter by owner"
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <Search />
+                                    </InputAdornment>
+                                ),
                             }}
-                        >Add Filter</Link>
-                        <Link
-                            sx={{
-                                cursor: "pointer",
-                                color: "blue",
-                                textDecoration: "none",
-                                fontWeight: "400",
-                                p: 1,
-                                ":hover": {
-                                    textDecoration: "underline"
-                                }
+                            style={{
+                                borderRadius: 4,
                             }}
-                        >Remove Filters</Link>
+                        />
+                        <Button variant='contained' size='large' disableElevation>
+                            Search
+                        </Button>
                     </Box>
-                    <ListItemText sx={{ mt: 2 }} primary="Filter by additional Fields (Optional):" slotProps={{
-                        primary: {
-                            sx: { fontWeight: "500" }
-                        }
-                    }} />
-                    <Box display="flex" alignItems="center" justifyContent="start" gap={3}>
+                    
+                    <Box display="flex" alignItems="center" justifyContent="start" gap={3} mt={4}>
                         <Box flex={0.5} />
                         <ListItemText
                             sx={{
