@@ -32,12 +32,12 @@ export default function Navbar() {
                             </ListItem>
                         </List>
                     </Box>
-                    <Box className="search-bar-container" sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#F0F0F0', borderRadius: '20px', width: "100%", padding: '4px 12px', maxWidth: '600px', flex: 1.5 }}>
+                    <Box className="search-bar-container" sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#ece6f0', borderRadius: '20px', width: "100%", padding: '4px 12px', maxWidth: '600px', flex: 1.5 }}>
                         <IconButton size="small" edge="start" sx={{ mr: 2 }}>
                             <Menu sx={{ color: "#49454F" }} />
                         </IconButton>
                         <InputBase
-                            sx={{ color: "#49454F", width: "100%" }}
+                            sx={{ color: "#000", width: "100%", }}
                             placeholder="Global search"
                             inputProps={{ 'aria-label': 'global search' }}
                         />

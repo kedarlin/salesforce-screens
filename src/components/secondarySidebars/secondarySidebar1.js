@@ -6,7 +6,6 @@ import {
     ListItemButton,
     ListItemIcon,
     ListItemText,
-    TextField
 } from '@mui/material';
 import AppIcon from '../../assets/appIcon';
 import { Archive, ExpandLess, ExpandMore, Mail, Star, Wifi } from '@mui/icons-material';
@@ -35,9 +34,6 @@ const SecondarySidebar1 = () => {
                 />
             </ListItem>
 
-            <ListItem>
-                <TextField size='small' id="outlined-basic" placeholder='Placeholder' variant="outlined" />
-            </ListItem>
 
             <ListItemButton onClick={() => handleClick(0)}>
                 <ListItemIcon>
@@ -106,6 +102,92 @@ const SecondarySidebar1 = () => {
                 </ListItemIcon>
                 <ListItemText primary="ListItem 5" />
             </ListItemButton>
+            <ListItemButton>
+                <ListItemIcon>
+                    <Star />
+                </ListItemIcon>
+                <ListItemText primary="ListItem 6" />
+            </ListItemButton>
+            <ListItemButton>
+                <ListItemIcon>
+                    <Star />
+                </ListItemIcon>
+                <ListItemText primary="ListItem 7" />
+            </ListItemButton>
+            <ListItemButton>
+                <ListItemIcon>
+                    <Wifi />
+                </ListItemIcon>
+                <ListItemText primary="ListItem 8" />
+            </ListItemButton>
+
+            <ListItemButton>
+                <ListItemIcon>
+                    <Star />
+                </ListItemIcon>
+                <ListItemText primary="ListItem 9" />
+            </ListItemButton>
+            <ListItemButton>
+                <ListItemIcon>
+                    <Star />
+                </ListItemIcon>
+                <ListItemText primary="ListItem 10" />
+            </ListItemButton>
+            <ListItemButton>
+                <ListItemIcon>
+                    <Wifi />
+                </ListItemIcon>
+                <ListItemText primary="ListItem 11" />
+            </ListItemButton>
+            <ListItemButton>
+                <ListItemIcon>
+                    <Star />
+                </ListItemIcon>
+                <ListItemText primary="ListItem 12" />
+            </ListItemButton>
+            <ListItemButton>
+                <ListItemIcon>
+                    <Star />
+                </ListItemIcon>
+                <ListItemText primary="ListItem 13" />
+            </ListItemButton>
+            <ListItemButton>
+                <ListItemIcon>
+                    <Wifi />
+                </ListItemIcon>
+                <ListItemText primary="ListItem 14" />
+            </ListItemButton>
+            <ListItemButton>
+                <ListItemIcon>
+                    <Star />
+                </ListItemIcon>
+                <ListItemText primary="ListItem 15" />
+            </ListItemButton>
+            <ListItemButton>
+                <ListItemIcon>
+                    <Wifi />
+                </ListItemIcon>
+                <ListItemText primary="ListItem 16" />
+            </ListItemButton>
+            <ListItemButton>
+                <ListItemIcon>
+                    <Star />
+                </ListItemIcon>
+                <ListItemText primary="ListItem 17" />
+            </ListItemButton>
+            <ListItemButton>
+                <ListItemIcon>
+                    <Star />
+                </ListItemIcon>
+                <ListItemText primary="ListItem 18" />
+            </ListItemButton>
+            <ListItemButton>
+                <ListItemIcon>
+                    <Wifi />
+                </ListItemIcon>
+                <ListItemText primary="ListItem 19" />
+            </ListItemButton>
+            
         </List>
     );
 };
