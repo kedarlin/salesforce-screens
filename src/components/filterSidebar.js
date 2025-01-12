@@ -129,7 +129,7 @@ const FilterSidebar = ({ openFilterSidebar, toggleDrawer }) => {
                 padding={2}
                 mr={4}
             >
-                <Box display="flex" alignItems="center" onClick={toggleDrawer(true)} gap={2}>
+                <Box display="flex" alignItems="center" gap={2}>
                     <IconButton onClick={toggleDrawer(false)} size="large" color="black">
                         <Close />
                     </IconButton>

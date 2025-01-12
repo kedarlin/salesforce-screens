@@ -9,7 +9,7 @@ const Filterbar = () => {
     const [anchorEl2, setAnchorEl2] = React.useState(null);
     const open1 = Boolean(anchorEl1);
     const open2 = Boolean(anchorEl2);
-    const [openFilterSidebar, setOpenFilterSidebar] = useState(true);
+    const [openFilterSidebar, setOpenFilterSidebar] = useState(false);
 
     const handleChange = (event) => {
         setFilter(event.target.value);
@@ -29,6 +29,10 @@ const Filterbar = () => {
     };
 
     const toggleDrawer = (open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+          return;
+        }
+    
         setOpenFilterSidebar(open);
       };
 
