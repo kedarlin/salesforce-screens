@@ -1,6 +1,7 @@
 import { ArrowDropDown, ArrowForwardIos, FilterAlt, Search, Settings, Star, ViewKanbanOutlined } from '@mui/icons-material';
-import { Box, FormControl, IconButton, InputAdornment, ListItem, MenuItem, Menu, Button, TextField, Select } from '@mui/material';
-import React from 'react';
+import { Box, FormControl, IconButton, InputAdornment, ListItem, MenuItem, Menu, Button, TextField, Select, Collapse } from '@mui/material';
+import React, { useState } from 'react';
+import FilterSidebar from './filterSidebar';
 
 const Filterbar = () => {
     const [filter, setFilter] = React.useState('default');
@@ -8,6 +9,7 @@ const Filterbar = () => {
     const [anchorEl2, setAnchorEl2] = React.useState(null);
     const open1 = Boolean(anchorEl1);
     const open2 = Boolean(anchorEl2);
+    const [openFilterSidebar, setOpenFilterSidebar] = useState(true);
 
     const handleChange = (event) => {
         setFilter(event.target.value);
@@ -25,6 +27,14 @@ const Filterbar = () => {
     const handleClose2 = () => {
         setAnchorEl2(null);
     };
+
+    const toggleDrawer = (open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+          return;
+        }
+    
+        setOpenFilterSidebar(open);
+      };
 
     return (
         <Box display="flex" flexDirection="row" alignItems="center" gap="16px" padding="16px">
@@ -119,6 +129,7 @@ const Filterbar = () => {
                     anchorEl={anchorEl2}
                     open={open2}
                     onClose={handleClose2}
+                    TransitionComponent={Collapse}
                     anchorOrigin={{
                         vertical: 'bottom',
                         horizontal: 'left',
@@ -140,9 +151,10 @@ const Filterbar = () => {
                 <IconButton>
                     <Settings />
                 </IconButton>
-                <IconButton>
+                <IconButton onClick={toggleDrawer(true)}>
                     <FilterAlt />
                 </IconButton>
+                <FilterSidebar openFilterSidebar={openFilterSidebar} toggleDrawer={toggleDrawer} />
             </Box>
         </Box>
     );
