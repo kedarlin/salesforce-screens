@@ -10,7 +10,7 @@ import {
 import AppIcon from '../../assets/appIcon';
 import { Archive, ExpandLess, ExpandMore, Mail, Star } from '@mui/icons-material';
 
-const SecondarySidebar1 = () => {
+const SecondarySidebar1 = ({open}) => {
     const [openStates, setOpenStates] = React.useState({});
 
     const handleClick = (index) => {
@@ -31,7 +31,7 @@ const SecondarySidebar1 = () => {
                 padding: '0',
                 boxShadow: '0px 2px 1px 1px #00000033',
                 overflow: 'hidden',
-                display: 'flex',
+                display: open ? 'flex':'none',
                 flexDirection: 'column',
             }}
             aria-label="contacts"

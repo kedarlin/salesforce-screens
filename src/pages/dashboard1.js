@@ -29,7 +29,7 @@ const Dashboard1 = () => {
                     borderRight: '1px solid #ddd',
                 }}
             >
-                <SecondarySidebar selectedIndex={selectedIndex} open={open} setOpen={setOpen} />
+                <SecondarySidebar selectedIndex={selectedIndex} open={open} />
 
                 <IconButton size='small' edge='start'
                     sx={{
@@ -47,7 +47,7 @@ const Dashboard1 = () => {
                     }}
                     onClick={() => setOpen((prev) => !prev)}
                 >
-                    {open ? <ArrowBackIos  sx={{fontSize: "14px", transform: "translateX(2px)"}}/> : <ArrowForwardIos sx={{fontSize: "14px"}}/>}
+                    {open ? <ArrowBackIos  sx={{fontSize: "14px", transform: "translateX(3px)"}}/> : <ArrowForwardIos sx={{fontSize: "14px",  transform: "translateX(1px)"}}/>}
                 </IconButton>
             </Box>
 
