@@ -1,4 +1,4 @@
-import { Close, Inbox, Mail, UnfoldMore, Star } from '@mui/icons-material';
+import { Close, Inbox, Mail, UnfoldMore, Star, Search } from '@mui/icons-material';
 import {
     Box,
     Collapse,
@@ -11,6 +11,9 @@ import {
     MenuItem,
     Select,
     Link,
+    TextField,
+    InputAdornment,
+    Button,
 } from '@mui/material';
 import React from 'react';
 import { TransitionGroup } from 'react-transition-group';
@@ -30,8 +33,11 @@ const FilterSidebar = ({ openFilterSidebar, toggleDrawer }) => {
     const renderFilterItem = ({ index }) => {
         return (
             <Box display="flex" alignItems="center" justifyContent="start" gap={3} key={index} my={1}>
-                {index + 1}.
-                <FormControl size='small' sx={{ width: "150px" }}>
+                <Box flex={0.5}>
+                    {index + 1}.
+                </Box>
+
+                <FormControl size='small' sx={{ flex: 5 }}>
                     <Select
                         size="small"
                         id="demo-simple-select-outlined"
@@ -67,7 +73,7 @@ const FilterSidebar = ({ openFilterSidebar, toggleDrawer }) => {
                         </MenuItem>
                     </Select>
                 </FormControl>
-                <FormControl size='small' sx={{ width: "150px" }}>
+                <FormControl size='small' sx={{ flex: 4 }}>
                     <Select
                         size="small"
                         id="demo-simple-select-outlined"
@@ -103,42 +109,15 @@ const FilterSidebar = ({ openFilterSidebar, toggleDrawer }) => {
                         </MenuItem>
                     </Select>
                 </FormControl>
-                <FormControl size='small' sx={{ width: "150px" }}>
-                    <Select
-                        size="small"
-                        id="demo-simple-select-outlined"
-                        value={filters[index]}
-                        onChange={handleChange(index)}
-                        IconComponent={UnfoldMore}
-                        sx={{
-                            padding: 0,
-                            '.MuiSelect-select': {
-                                padding: 0,
-                            },
-                        }}
-                    >
-                        <MenuItem value="default" sx={{ padding: "0px" }}>
-                            <Box display="flex" alignItems="center">
-                                <ListItem>Filter Item 1</ListItem>
-                            </Box>
-                        </MenuItem>
-                        <MenuItem value="email" sx={{ padding: "0px" }}>
-                            <Box display="flex" alignItems="center">
-                                <ListItem>Filter Item 2</ListItem>
-                            </Box>
-                        </MenuItem>
-                        <MenuItem value="location" sx={{ padding: "0px" }}>
-                            <Box display="flex" alignItems="center">
-                                <ListItem>Filter Item 3</ListItem>
-                            </Box>
-                        </MenuItem>
-                        <MenuItem value="name" sx={{ padding: "0px" }}>
-                            <Box display="flex" alignItems="center">
-                                <ListItem>Filter Item 4</ListItem>
-                            </Box>
-                        </MenuItem>
-                    </Select>
-                </FormControl>
+                <TextField
+                    size="small"
+                    variant="outlined"
+                    placeholder="Search..."
+                    style={{
+                        flex: 3,
+                        borderRadius: 4,
+                    }}
+                />
             </Box>
         );
     };
@@ -146,10 +125,10 @@ const FilterSidebar = ({ openFilterSidebar, toggleDrawer }) => {
     return (
         <Drawer anchor="right" open={openFilterSidebar} onClose={toggleDrawer(false)}>
             <Box
-                sx={{ width: "50vw" }}
                 role="presentation"
                 onKeyDown={toggleDrawer(false)}
                 padding={2}
+                mr={4}
             >
                 <Box display="flex" alignItems="center" onClick={toggleDrawer(true)} gap={2}>
                     <IconButton onClick={toggleDrawer(false)} size="large" color="black">
@@ -161,12 +140,106 @@ const FilterSidebar = ({ openFilterSidebar, toggleDrawer }) => {
                             primary: {
                                 sx: {
                                     fontSize: "24px",
+                                    fontWeight: "500"
                                 },
                             },
                         }}
                     />
                 </Box>
                 <List sx={{ mt: 1 }}>
+                    <TextField
+                        fullWidth
+                        size="medium"
+                        variant="outlined"
+                        placeholder="Search Account"
+                        label="Filter by owner"
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <Search />
+                                </InputAdornment>
+                            ),
+                        }}
+                        style={{
+                            borderRadius: 4,
+                        }}
+                    />
+                    <Button variant='contained' sx={{ mt: 2 }} disableElevation>
+                        Search
+                    </Button>
+                    <Box display="flex" justifyContent="flex-start" flexDirection="row" gap={2}>
+                        <Link
+                            sx={{
+                                cursor: "pointer",
+                                color: "blue",
+                                textDecoration: "none",
+                                fontWeight: "400",
+                                p: 1,
+                                ":hover": {
+                                    textDecoration: "underline"
+                                }
+                            }}
+                        >Add Filter</Link>
+                        <Link
+                            sx={{
+                                cursor: "pointer",
+                                color: "blue",
+                                textDecoration: "none",
+                                fontWeight: "400",
+                                p: 1,
+                                ":hover": {
+                                    textDecoration: "underline"
+                                }
+                            }}
+                        >Remove Filters</Link>
+                    </Box>
+                    <ListItemText sx={{ mt: 2 }} primary="Filter by additional Fields (Optional):" slotProps={{
+                        primary: {
+                            sx: { fontWeight: "500" }
+                        }
+                    }} />
+                    <Box display="flex" alignItems="center" justifyContent="start" gap={3}>
+                        <Box flex={0.5} />
+                        <ListItemText
+                            sx={{
+                                flex: 5
+                            }}
+                            primary="Field"
+                            slotProps={{
+                                primary: {
+                                    sx: {
+                                        fontWeight: "500"
+                                    },
+                                },
+                            }}
+                        />
+                        <ListItemText
+                            sx={{
+                                flex: 4
+                            }}
+                            primary="Operator"
+                            slotProps={{
+                                primary: {
+                                    sx: {
+                                        fontWeight: "500"
+                                    },
+                                },
+                            }}
+                        />
+                        <ListItemText
+                            sx={{
+                                flex: 3
+                            }}
+                            primary="Value"
+                            slotProps={{
+                                primary: {
+                                    sx: {
+                                        fontWeight: "500"
+                                    },
+                                },
+                            }}
+                        />
+                    </Box>
                     <TransitionGroup>
                         {Array.from({ length: filtersCount }).map((_, index) => (
                             <Collapse key={index}>
@@ -193,7 +266,28 @@ const FilterSidebar = ({ openFilterSidebar, toggleDrawer }) => {
                                     return newCount;
                                 });
                             }}
-                        >Add Filter</Link>
+                        >Add row</Link>
+                        <Link
+                            sx={{
+                                cursor: "pointer",
+                                color: "blue",
+                                textDecoration: "none",
+                                fontWeight: "400",
+                                p: 1,
+                                ":hover": {
+                                    textDecoration: "underline"
+                                }
+                            }}
+                            onClick={() => {
+                                setFiltersCount((prevCount) => {
+                                    const newCount = prevCount - 1 < 1 ? 1 : prevCount - 1;
+                                    setFilters((prevFilters) => [...prevFilters, "default"]);
+                                    return newCount;
+                                });
+                            }}
+                        >Remove row</Link>
+                    </Box>
+                    <Box display="flex" justifyContent="flex-start" flexDirection="row" gap={2}>
                         <Link
                             sx={{
                                 cursor: "pointer",
@@ -208,11 +302,11 @@ const FilterSidebar = ({ openFilterSidebar, toggleDrawer }) => {
                             onClick={() => {
                                 setFiltersCount(() => {
                                     const newCount = 1;
-                                    setFilters((prevFilters) => [...prevFilters, "default"]);
+                                    setFilters(["default"]);
                                     return newCount;
                                 });
                             }}
-                        >Remove All Filters</Link>
+                        >Remove all rows</Link>
                     </Box>
                 </List>
             </Box>
